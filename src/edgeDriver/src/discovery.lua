@@ -78,7 +78,7 @@ function disco.start(driver, opts, cons)
     local device_res = ssdp.find_device();
 
     if device_res ~= nil then
-      if device_res.location and string.find(device_res.usn, "MyQDoor") then
+      if device_res.location then
         log.info('===== MyQ Server FOUND IN NETWORK AT: ' ..device_res.location)
 
         local devices = fetch_device_info(device_res.location)

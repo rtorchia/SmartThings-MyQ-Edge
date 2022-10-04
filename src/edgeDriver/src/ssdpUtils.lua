@@ -13,7 +13,7 @@ function ssdp_handler.find_device()
 
     -- Broadcast search
     log.info('===== SCANNING NETWORK...')
-    upnp:sendto(config.MSEARCH, config.MC_ADDRESS, config.MC_PORT) 
+    upnp:sendto(config.MSEARCH, config.MC_ADDRESS, config.MC_PORT)
 
     local res = upnp:receive()
 
@@ -21,8 +21,16 @@ function ssdp_handler.find_device()
     upnp:close()
 
     if res ~= nil then
-        return parse_ssdp(res)
+      local parsedResponse = parse_ssdp(res);
+      if parsedResponse.location and string.find(parsedResponse.usn, "MyQBetaDoor") then
+        log.info('===== MyQ Server FOUND IN NETWORK AT: ' ..parsedResponse.location)
+        return parsedResponse
+      else
+        log.info('===== Ignoring response from: ' ..parsedResponse.location)
+        return nil
+      end
     end
+    --log.error('===== No MyQ Bridge found in network')
     return nil
 end
 

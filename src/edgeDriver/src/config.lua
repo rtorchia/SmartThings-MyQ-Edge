@@ -1,7 +1,7 @@
 local config = {}
 
 --ST device info.
-config.DEVICE_PROFILE='MyQDoor.v1'
+config.DEVICE_PROFILE='MyQDoorBETA.v1'
 config.DEVICE_TYPE='LAN'
 
 -- SSDP Config
@@ -13,7 +13,7 @@ config.MSEARCH=table.concat({
   'HOST: 239.255.255.250:1900',
   'MAN: "ssdp:discover"',
   'MX: 4',
-  'ST: urn:SmartThingsCommunity:device:MyQDoor'
+  'ST: urn:SmartThingsCommunity:device:MyQBetaDoor'
 }, '\r\n')
 config.SCHEDULE_PERIOD_PING=60
 config.SCHEDULE_PERIOD_REFRESH=300

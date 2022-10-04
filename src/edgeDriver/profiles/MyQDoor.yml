@@ -1,4 +1,4 @@
-name: MyQDoor.v1
+name: MyQDoorBETA.v1
 components:
 - id: main
   capabilities:

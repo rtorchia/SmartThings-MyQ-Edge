@@ -11,7 +11,7 @@ local server = require('server')
 -- Driver definition
 local driver =
   Driver(
-    'MyQDoor',
+    'MyQDoorBETA',
     {
       discovery = discovery.start,
       lifecycle_handlers = lifecycles,
